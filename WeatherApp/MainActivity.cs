@@ -17,6 +17,7 @@ namespace WeatherApp
         ListView _listView;
         List<WeatherInfo> _weatherinfo;
         ForecastAdapter _forecastAdapter;
+        List<Root> _root;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,8 +44,8 @@ namespace WeatherApp
                 var bitmap = await BitmapFactory.DecodeByteArrayAsync(imageBytes, 0, imageBytes.Length);
                 weatherImageView.SetImageBitmap(bitmap);
 
-                _weatherinfo = await weatherService.GetCityForecast(cityEditText.Text);
-                var forecastAdapter = new ForecastAdapter(this, _weatherinfo);
+                _root = weatherService.GetCityForecast(cityEditText.Text);
+                var forecastAdapter = new ForecastAdapter(this, _root);
                 _listView.Adapter = _forecastAdapter;
 
             };
