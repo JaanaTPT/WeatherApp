@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
      android:padding="10dp">
+    <TextView
+        android:text="Search by city name:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +20,7 @@
         android:hint="City" />
     <Button
         android:text="Search"
-        android:layout_width="match_parent"
+        android:layout_width=" 250px"
         android:layout_height="wrap_content"
         android:id="@+id/searchButton" />
     <ImageView
@@ -24,10 +29,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/weatherImageView" />
     <TextView
+        android:text="Temperature:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <TextView
         android:text="Temperature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/temperatureTextView" />
+    <TextView
+        android:text="Wind:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
     <TextView
         android:text="Wind"
         android:layout_width="match_parent"

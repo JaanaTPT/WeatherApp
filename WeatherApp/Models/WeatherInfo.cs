@@ -92,6 +92,7 @@ namespace WeatherApp.Models
         public int sunset { get; set; }
     }
 
+    //sellisel kujul tuleb tuleb forecast
     public class Root
     {
         public string cod { get; set; }
@@ -108,7 +109,6 @@ namespace WeatherApp.Models
         public List<Weather> weather { get; set; }
         public string @base { get; set; }
         public Main main { get; set; }
-        public List list { get; set; }
         public int visibility { get; set; }
         public Wind wind { get; set; }
         public Clouds clouds { get; set; }

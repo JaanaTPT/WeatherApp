@@ -12,18 +12,20 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Adapters
 {
-    public class ForecastAdapter : BaseAdapter<WeatherInfo>
+    public class ForecastAdapter : BaseAdapter<Root>
     {
-        List<WeatherInfo> _items;
+        List<Root> _items;
         Activity _context;
 
-        public ForecastAdapter(Activity context, List<WeatherInfo> items)
+        Root weather = new Root();
+
+        public ForecastAdapter(Activity context, List<Root> items)
         {
             _items = items;
             _context = context;
         }
 
-        public override WeatherInfo this[int position]
+        public override Root this[int position]
         {
             get { return _items[position]; }
         }
@@ -45,7 +47,7 @@ namespace WeatherApp.Adapters
                 view = _context.LayoutInflater.Inflate(Resource.Layout.forecast_row_layout, null);
             view.FindViewById<TextView>(Resource.Id.dateTimeView).Text = _items[position].list.dt_txt;
             view.FindViewById<TextView>(Resource.Id.forecastTemperatureView).Text = _items[position].list.main.temp.ToString();
-            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = _items[position].list.wind.ToString();
+            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = _items[position].list.wind.speed.ToString();
             return view;
         }
     }

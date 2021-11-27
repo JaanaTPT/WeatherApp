@@ -37,7 +37,7 @@ namespace WeatherApp.Services
 
         }
 
-        public async Task<WeatherInfo> GetCityForecast(string city)
+        public async List<Root> GetCityForecast(string city)
         {
             using (var client = new HttpClient())
             {
