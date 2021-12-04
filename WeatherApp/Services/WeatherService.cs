@@ -44,7 +44,7 @@ namespace WeatherApp.Services
                 try
                 {
                     var response = await client.GetStringAsync
-                    ($"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={ApiKey}");
+                    ($"https://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={ApiKey}");
                     var data = JsonConvert.DeserializeObject<WeatherForecast>(response);
                     return data;
                 }
