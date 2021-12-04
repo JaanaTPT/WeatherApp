@@ -66,6 +66,7 @@ namespace WeatherApp.Models
         public double _3h { get; set; }
     }
 
+    //siin sees on reaalne järgnevate päevade ilmaennustus
     public class List
     {
         public int dt { get; set; }
@@ -92,8 +93,8 @@ namespace WeatherApp.Models
         public int sunset { get; set; }
     }
 
-    //sellisel kujul tuleb forecast
-    public class Root
+    //sellisel kujul tuleb forecast, detailid on Listis
+    public class WeatherForecast
     {
         public string cod { get; set; }
         public int message { get; set; }
@@ -103,7 +104,7 @@ namespace WeatherApp.Models
     }
 
 
-    public class WeatherInfo
+    public class CurrentWeatherInfo
     {
         public Coord coord { get; set; }
         public List<Weather> weather { get; set; }

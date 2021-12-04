@@ -14,15 +14,12 @@ namespace WeatherApp
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        ListView _listView;
-        List<WeatherInfo> _weatherinfo;
-        //ForecastAdapter _forecastAdapter;
-        //List<Root> _root;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
             var cityEditText = FindViewById<EditText>(Resource.Id.cityEditText);
             var searchButton = FindViewById<Button>(Resource.Id.searchButton);
             var temperatureTextView = FindViewById<TextView>(Resource.Id.temperatureTextView);
@@ -32,7 +29,7 @@ namespace WeatherApp
 
             var weatherService = new WeatherService();
 
-            _listView = FindViewById<ListView>(Resource.Id.forecastListView);
+            var listView = FindViewById<ListView>(Resource.Id.forecastListView);
 
             searchButton.Click += async delegate
             {
@@ -47,8 +44,10 @@ namespace WeatherApp
 
 
                 var forecast = await weatherService.GetCityForecast(cityEditText.Text);
-                var forecastAdapter = new ForecastAdapter(this, forecast);
-                _listView.Adapter = forecastAdapter;
+                List<List> details = forecast.list;
+
+                var forecastAdapter = new ForecastAdapter(this, details);
+                listView.Adapter = forecastAdapter;
 
             };
         }
