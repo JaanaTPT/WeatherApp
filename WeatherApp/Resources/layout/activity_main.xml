@@ -1,58 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:padding="10dp">
+    android:padding="10dp"
+    android:background="#ff438bbe">
     <TextView
         android:text="Search by city name:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:textColor="@android:color/white"
+        android:id="@+id/textView1"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:id="@+id/cityEditText"
+        android:textColor="@android:color/white"
         android:hint="City" />
     <Button
         android:text="Search"
         android:layout_width=" 250px"
         android:layout_height="wrap_content"
+        android:background="#ff438bbe"
+        android:textColor="@android:color/white"
         android:id="@+id/searchButton" />
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="10px"
         android:id="@+id/weatherImageView" />
-    <TextView
+<!--    <TextView
         android:text="Temperature:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:textColor="@android:color/white"
+        android:id="@+id/textView2" />-->
     <TextView
         android:text="Temperature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:id="@+id/temperatureTextView" />
-    <TextView
+<!--    <TextView
         android:text="Wind:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        android:textColor="@android:color/white"
+        android:id="@+id/textView3" />-->
     <TextView
         android:text="Wind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:id="@+id/windTextView" />
-     <TextView
-        android:text="TestDate"
+    <TextView
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/testTextView" />
+        android:textColor="@android:color/white"
+        android:id="@+id/textView4" />
+    <TextView
+        android:text="FORECAST:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView4" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

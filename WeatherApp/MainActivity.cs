@@ -25,7 +25,6 @@ namespace WeatherApp
             var temperatureTextView = FindViewById<TextView>(Resource.Id.temperatureTextView);
             var windTextView = FindViewById<TextView>(Resource.Id.windTextView);
             var weatherImageView = FindViewById<ImageView>(Resource.Id.weatherImageView);
-            var testTextView = FindViewById<TextView>(Resource.Id.testTextView);
 
             var weatherService = new WeatherService();
 
@@ -34,9 +33,8 @@ namespace WeatherApp
             searchButton.Click += async delegate
             {
                 var data = await weatherService.GetCityWeather(cityEditText.Text);
-                temperatureTextView.Text = data.main.temp.ToString();
-                windTextView.Text = data.wind.speed.ToString();
-                testTextView.Text = data.weather[0].main;
+                temperatureTextView.Text = data.main.temp.ToString()+ " °C";
+                windTextView.Text = data.wind.speed.ToString()+" m/s";
 
                 var imageBytes = await weatherService.GetImageFromUrl($"https://openweathermap.org/img/wn/{data.weather[0].icon}@2x.png");
                 var bitmap = await BitmapFactory.DecodeByteArrayAsync(imageBytes, 0, imageBytes.Length);
