@@ -16,19 +16,19 @@ namespace WeatherApp
     {
         ListView _listView;
         List<WeatherInfo> _weatherinfo;
-        ForecastAdapter _forecastAdapter;
-        List<Root> _root;
+        //ForecastAdapter _forecastAdapter;
+        //List<Root> _root;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             var cityEditText = FindViewById<EditText>(Resource.Id.cityEditText);
             var searchButton = FindViewById<Button>(Resource.Id.searchButton);
             var temperatureTextView = FindViewById<TextView>(Resource.Id.temperatureTextView);
             var windTextView = FindViewById<TextView>(Resource.Id.windTextView);
             var weatherImageView = FindViewById<ImageView>(Resource.Id.weatherImageView);
+            var testTextView = FindViewById<TextView>(Resource.Id.testTextView);
 
             var weatherService = new WeatherService();
 
@@ -39,14 +39,16 @@ namespace WeatherApp
                 var data = await weatherService.GetCityWeather(cityEditText.Text);
                 temperatureTextView.Text = data.main.temp.ToString();
                 windTextView.Text = data.wind.speed.ToString();
+                testTextView.Text = data.weather[0].main;
 
                 var imageBytes = await weatherService.GetImageFromUrl($"https://openweathermap.org/img/wn/{data.weather[0].icon}@2x.png");
                 var bitmap = await BitmapFactory.DecodeByteArrayAsync(imageBytes, 0, imageBytes.Length);
                 weatherImageView.SetImageBitmap(bitmap);
 
-                _root = weatherService.GetCityForecast(cityEditText.Text);
-                var forecastAdapter = new ForecastAdapter(this, _root);
-                _listView.Adapter = _forecastAdapter;
+
+                var forecast = await weatherService.GetCityForecast(cityEditText.Text);
+                var forecastAdapter = new ForecastAdapter(this, forecast);
+                _listView.Adapter = forecastAdapter;
 
             };
         }

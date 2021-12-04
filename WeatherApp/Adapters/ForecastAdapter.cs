@@ -45,9 +45,9 @@ namespace WeatherApp.Adapters
             View view = convertView;
             if (view == null)
                 view = _context.LayoutInflater.Inflate(Resource.Layout.forecast_row_layout, null);
-            view.FindViewById<TextView>(Resource.Id.dateTimeView).Text = _items[position].list.dt_txt;
-            view.FindViewById<TextView>(Resource.Id.forecastTemperatureView).Text = _items[position].list.main.temp.ToString();
-            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = _items[position].list.wind.speed.ToString();
+            view.FindViewById<TextView>(Resource.Id.dateTimeView).Text = _items[0].list[position].dt_txt;
+            view.FindViewById<TextView>(Resource.Id.forecastTemperatureView).Text = _items[0].list[position].main.temp.ToString();
+            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = _items[0].list[position].wind.speed.ToString();
             return view;
         }
     }

@@ -92,7 +92,7 @@ namespace WeatherApp.Models
         public int sunset { get; set; }
     }
 
-    //sellisel kujul tuleb tuleb forecast
+    //sellisel kujul tuleb forecast
     public class Root
     {
         public string cod { get; set; }
