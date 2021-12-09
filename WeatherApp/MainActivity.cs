@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Widget;
+using System;
 using System.Collections.Generic;
 using WeatherApp.Adapters;
 using WeatherApp.Models;
@@ -25,6 +26,7 @@ namespace WeatherApp
             var temperatureTextView = FindViewById<TextView>(Resource.Id.temperatureTextView);
             var windTextView = FindViewById<TextView>(Resource.Id.windTextView);
             var weatherImageView = FindViewById<ImageView>(Resource.Id.weatherImageView);
+            var forecastTextView = FindViewById<TextView>(Resource.Id.forecastTextView);
 
             var weatherService = new WeatherService();
 
@@ -33,14 +35,15 @@ namespace WeatherApp
             searchButton.Click += async delegate
             {
                 var data = await weatherService.GetCityWeather(cityEditText.Text);
-                temperatureTextView.Text = data.main.temp.ToString()+ " °C";
-                windTextView.Text = data.wind.speed.ToString()+" m/s";
+                temperatureTextView.Text = Math.Round(data.main.temp).ToString()+ " °C";
+                windTextView.Text = Math.Round(data.wind.speed).ToString()+" m/s";
 
-                var imageBytes = await weatherService.GetImageFromUrl($"https://openweathermap.org/img/wn/{data.weather[0].icon}@2x.png");
+                var imageBytes = await weatherService.GetImageFromUrl($"https://openweathermap.org/img/wn/{data.weather[0].icon}@4x.png");
                 var bitmap = await BitmapFactory.DecodeByteArrayAsync(imageBytes, 0, imageBytes.Length);
                 weatherImageView.SetImageBitmap(bitmap);
 
-
+                forecastTextView.Text = "FORECAST:";
+            
                 var forecast = await weatherService.GetCityForecast(cityEditText.Text);
                 List<List> details = forecast.list;
 

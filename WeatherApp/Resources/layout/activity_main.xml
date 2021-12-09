@@ -27,36 +27,27 @@
         android:background="#ff438bbe"
         android:textColor="@android:color/white"
         android:id="@+id/searchButton" />
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="10px"
-        android:id="@+id/weatherImageView" />
-<!--    <TextView
-        android:text="Temperature:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:id="@+id/textView2" />-->
     <TextView
-        android:text="Temperature"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textAlignment="center"
         android:id="@+id/temperatureTextView" />
-<!--    <TextView
-        android:text="Wind:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:id="@+id/textView3" />-->
     <TextView
-        android:text="Wind"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textAlignment="center"
         android:id="@+id/windTextView" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60px"
+        android:id="@+id/weatherImageView" />
     <TextView
         android:text=""
         android:layout_width="match_parent"
@@ -64,11 +55,11 @@
         android:textColor="@android:color/white"
         android:id="@+id/textView4" />
     <TextView
-        android:text="FORECAST:"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:id="@+id/textView4" />
+        android:id="@+id/forecastTextView" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

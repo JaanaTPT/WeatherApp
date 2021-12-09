@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WeatherApp.Models;
+using WeatherApp.Services;
 
 namespace WeatherApp.Adapters
 {
@@ -40,12 +42,14 @@ namespace WeatherApp.Adapters
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
+
             View view = convertView;
             if (view == null)
                 view = _context.LayoutInflater.Inflate(Resource.Layout.forecast_row_layout, null);
             view.FindViewById<TextView>(Resource.Id.dateTimeView).Text = _items[position].dt_txt;
-            view.FindViewById<TextView>(Resource.Id.forecastTemperatureView).Text = _items[position].main.temp.ToString()+" °C";
-            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = _items[position].wind.speed.ToString()+" m/s";
+            view.FindViewById<TextView>(Resource.Id.forecastTemperatureView).Text = Math.Round(_items[position].main.temp).ToString()+" °C";
+            view.FindViewById<TextView>(Resource.Id.forecastWindView).Text = Math.Round(_items[position].wind.speed).ToString()+" m/s";
+            view.FindViewById<TextView>(Resource.Id.forecastDescriptionView) .Text = _items[position].weather[0].main.ToString();
             return view;
         }
     }

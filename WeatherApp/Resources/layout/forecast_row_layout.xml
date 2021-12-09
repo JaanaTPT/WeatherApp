@@ -9,7 +9,7 @@
         android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="0.33">
+        android:layout_weight="0.35">
         <TextView
             android:text="Date and time"
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="0.33">
+        android:layout_weight="0.15">
         <TextView
             android:text="Temperature"
             android:layout_width="match_parent"
@@ -39,12 +39,26 @@
         android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="0.33">
+        android:layout_weight="0.15">
         <TextView
         android:text="Wind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:id="@+id/forecastWindView" />
+    </LinearLayout>
+        <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.35">
+        <TextView
+        android:text="Wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:id="@+id/forecastDescriptionView" />
     </LinearLayout>
 </LinearLayout>
