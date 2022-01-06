@@ -93,7 +93,7 @@ namespace WeatherApp.Models
         public int sunset { get; set; }
     }
 
-    //sellisel kujul tuleb forecast, detailid on Listis
+
     public class WeatherForecast
     {
         public string cod { get; set; }

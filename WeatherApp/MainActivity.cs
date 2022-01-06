@@ -47,7 +47,7 @@ namespace WeatherApp
                 var forecast = await weatherService.GetCityForecast(cityEditText.Text);
                 List<List> details = forecast.list;
 
-                var forecastAdapter = new ForecastAdapter(this, details);
+                var forecastAdapter = new ForecastAdapter(this, details, data);
                 listView.Adapter = forecastAdapter;
 
             };
